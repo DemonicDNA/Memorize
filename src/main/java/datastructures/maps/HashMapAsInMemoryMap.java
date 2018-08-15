@@ -1,10 +1,10 @@
-package maps;
+package datastructures.maps;
 
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class InMemoryMap<K,V> implements InMemoryMapPersistence<K,V>{
+public class HashMapAsInMemoryMap<K,V> implements InMemoryMap<K,V> {
 
     private Map<K,V> inMemoryMap = new ConcurrentHashMap<K, V>();
 
