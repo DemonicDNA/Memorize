@@ -41,10 +41,14 @@ public class TestBasicCollectionMemorization {
         dataSource.putAll(Arrays.asList(new TestObject(UUID.randomUUID(), "Guy"),
                                         new TestObject(UUID.randomUUID(), "Tal")));
 
-        assertNotNull(collectionMemoryManager.getAll());
+
         Thread.sleep(700);
+        assertEquals(collectionMemoryManager.getAll().size(), 2);
+        assertEquals(dataSource.getAll().get().size(), 2);
         assertEquals(persistence.getAll().get(), dataSource.getAll().get());
+        assertEquals(persistence.getAll().get().size(),2);
         assertEquals(inMemoryPersistence.getAll(), dataSource.getAll().get());
+        assertEquals(inMemoryPersistence.getAll().size(), 2);
     }
 
     @Test

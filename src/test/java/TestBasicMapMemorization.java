@@ -40,8 +40,8 @@ public class TestBasicMapMemorization {
         final UUID uuid = UUID.randomUUID();
         dataSource.put(uuid, new TestObject(uuid, "Guy"));
 
-        assertNotNull(inMemoryMapMemoryManager.get(uuid));
         Thread.sleep(700);
+        assertNotNull(inMemoryMapMemoryManager.get(uuid));
         assertEquals(persistence.get(uuid).get(), dataSource.get(uuid).get());
         assertEquals(inMemoryPersistence.get(uuid), dataSource.get(uuid).get());
     }
